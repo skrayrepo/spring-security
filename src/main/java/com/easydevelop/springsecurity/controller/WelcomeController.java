@@ -19,9 +19,6 @@ public class WelcomeController {
     @Autowired
     AuthenticationProvider authenticationProvider;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
-
     @GetMapping("/userLogin")
     public String login(){
         return "Welcome to Login page";
@@ -38,13 +35,6 @@ public class WelcomeController {
         }
     }
 
-    @PostMapping("/validate")
-    public void validate(@RequestBody UserRequest request){
-        if(passwordEncoder.matches(request.getPassword(),"$2a$10$H.LCx5ItkoK2rHlLeWQqyuEhzuxDYYql4PUYN7KkG6Su0QN7Gehai")){
-            System.out.println("Success");
-        }
-
-    }
 
     @GetMapping("/home")
     public String home(){
